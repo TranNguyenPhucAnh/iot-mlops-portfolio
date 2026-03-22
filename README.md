@@ -27,7 +27,7 @@
 
 ---
 
-## The core challenge: sparse edge data
+## Challenge: sparse edge data
 
 > **Problem:** A single Raspberry Pi running 24/7 produces nearly uniform readings — natural anomalies are rare, so a naively trained model just learns *"everything is normal."*
 
