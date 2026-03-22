@@ -26,7 +26,7 @@
 
   <rect x="36" y="96" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
   <text x="112" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">BME680 sensor</text>
-  <text x="112" y="136" text-anchor="middle" font-size="10" fill="#993C1D">temp &#183; hum &#183; pressure &#183; gas</text>
+  <text x="112" y="136" text-anchor="middle" font-size="10" fill="#993C1D">temp &#183; hum &#183; press &#183; gas</text>
 
   <rect x="36" y="160" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
   <text x="112" y="182" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">collector.py</text>
