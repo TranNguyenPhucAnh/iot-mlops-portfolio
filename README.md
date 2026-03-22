@@ -107,7 +107,7 @@ Kubernetes manifests and ArgoCD Application definitions for all EKS workloads.
 
 | Directory | What runs there |
 |-----------|----------------|
-| `airflow-app/` | Airflow (KubernetesExecutor), DAG sync from S3 |
+| `airflow-app/` | Airflow (CeleryExecutor), DAG sync from S3 |
 | `mlflow-app/` | MLflow tracking server — RDS PostgreSQL + S3 artifacts |
 | `grafana-app/` | Grafana with Alloy, forwarding to Grafana Cloud |
 | `jenkins-app/` | Jenkins with EBS-backed persistent workspace |
@@ -192,7 +192,7 @@ Modular Terraform for the entire AWS foundation.
 
 ---
 
-## Design decisions
+## Some Notes On Design Decisions
 
 | Decision | Why it matters |
 |----------|---------------|
