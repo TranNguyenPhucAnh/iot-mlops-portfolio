@@ -1,0 +1,204 @@
+<svg width="900" height="760" viewBox="0 0 900 760" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-dash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="760" fill="#fafafa" rx="12"/>
+
+  <!-- Column headers -->
+  <text x="112" y="28" text-anchor="middle" font-size="11" fill="#999">iot-mlops-edge-compute</text>
+  <text x="320" y="28" text-anchor="middle" font-size="11" fill="#999">iot-mlops-python-dag</text>
+  <text x="570" y="28" text-anchor="middle" font-size="11" fill="#999">iot-mlops-manifests + terraform</text>
+  <text x="800" y="28" text-anchor="middle" font-size="11" fill="#999">iot-mlops-python-dag</text>
+
+  <!-- Dividers -->
+  <line x1="216" y1="36" x2="216" y2="720" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="452" y1="36" x2="452" y2="720" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="688" y1="36" x2="688" y2="720" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- ── COLUMN 1: EDGE ── -->
+  <rect x="20" y="42" width="184" height="500" rx="12" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text x="112" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Edge · Raspberry Pi 3</text>
+  <text x="112" y="84" text-anchor="middle" font-size="10" fill="#993C1D">Ansible deploy</text>
+
+  <rect x="36" y="96" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="112" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">BME680 sensor</text>
+  <text x="112" y="136" text-anchor="middle" font-size="10" fill="#993C1D">temp · hum · pressure · gas</text>
+
+  <rect x="36" y="160" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="112" y="182" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">collector.py</text>
+  <text x="112" y="200" text-anchor="middle" font-size="10" fill="#993C1D">batch 10 · retry · backup</text>
+
+  <rect x="36" y="224" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="112" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">Fluent-bit</text>
+  <text x="112" y="264" text-anchor="middle" font-size="10" fill="#993C1D">structured JSON → Loki</text>
+
+  <rect x="36" y="288" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="112" y="310" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">OpenTelemetry</text>
+  <text x="112" y="328" text-anchor="middle" font-size="10" fill="#993C1D">traces → Tempo (OTLP)</text>
+
+  <rect x="36" y="352" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="112" y="374" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">Node Exporter</text>
+  <text x="112" y="392" text-anchor="middle" font-size="10" fill="#993C1D">host metrics → Prometheus</text>
+
+  <rect x="36" y="416" width="152" height="52" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="112" y="438" text-anchor="middle" font-size="12" font-weight="600" fill="#712B13">Jenkins (ECR)</text>
+  <text x="112" y="456" text-anchor="middle" font-size="10" fill="#993C1D">image build · push</text>
+
+  <!-- Edge internal arrows -->
+  <line x1="112" y1="148" x2="112" y2="158" stroke="#993C1D" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="112" y1="212" x2="112" y2="222" stroke="#993C1D" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="112" y1="276" x2="112" y2="286" stroke="#993C1D" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="112" y1="340" x2="112" y2="350" stroke="#993C1D" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="112" y1="404" x2="112" y2="414" stroke="#993C1D" stroke-width="1" marker-end="url(#arr)"/>
+
+  <!-- collector → SQS cross-layer arrow -->
+  <line x1="188" y1="186" x2="228" y2="186" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── COLUMN 2: INGESTION ── -->
+  <rect x="228" y="42" width="212" height="500" rx="12" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+  <text x="334" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#633806">Ingestion &amp; storage</text>
+  <text x="334" y="84" text-anchor="middle" font-size="10" fill="#854F0B">S3 · SQS · Glue · Athena</text>
+
+  <rect x="244" y="96" width="180" height="52" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="334" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#633806">SQS queue</text>
+  <text x="334" y="136" text-anchor="middle" font-size="10" fill="#854F0B">telemetry buffer</text>
+
+  <rect x="244" y="160" width="180" height="52" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="334" y="182" text-anchor="middle" font-size="12" font-weight="600" fill="#633806">S3 Bronze</text>
+  <text x="334" y="200" text-anchor="middle" font-size="10" fill="#854F0B">raw sensor events · Parquet</text>
+
+  <rect x="244" y="224" width="180" height="52" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="334" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#633806">S3 Silver</text>
+  <text x="334" y="264" text-anchor="middle" font-size="10" fill="#854F0B">validated · IAQ scored</text>
+
+  <rect x="244" y="288" width="180" height="52" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="334" y="310" text-anchor="middle" font-size="12" font-weight="600" fill="#633806">S3 Gold</text>
+  <text x="334" y="328" text-anchor="middle" font-size="10" fill="#854F0B">features · aggregates</text>
+
+  <rect x="244" y="352" width="180" height="52" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="334" y="374" text-anchor="middle" font-size="12" font-weight="600" fill="#633806">Glue + Athena</text>
+  <text x="334" y="392" text-anchor="middle" font-size="10" fill="#854F0B">catalog · SQL analytics</text>
+
+  <rect x="244" y="416" width="180" height="52" rx="8" fill="#FAC775" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="334" y="438" text-anchor="middle" font-size="12" font-weight="600" fill="#633806">Synthetic generator</text>
+  <text x="334" y="456" text-anchor="middle" font-size="10" fill="#854F0B">injects anomalies → Bronze</text>
+
+  <!-- Ingestion internal arrows -->
+  <line x1="334" y1="148" x2="334" y2="158" stroke="#854F0B" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="334" y1="212" x2="334" y2="222" stroke="#854F0B" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="334" y1="276" x2="334" y2="286" stroke="#854F0B" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="334" y1="340" x2="334" y2="350" stroke="#854F0B" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="334" y1="404" x2="334" y2="414" stroke="#854F0B" stroke-width="1" marker-end="url(#arr)"/>
+
+  <!-- Silver → EKS cross-layer arrow -->
+  <line x1="440" y1="250" x2="468" y2="250" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── COLUMN 3: MLOPS EKS ── -->
+  <rect x="460" y="42" width="216" height="500" rx="12" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text x="568" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#3C3489">MLOps platform · EKS</text>
+  <text x="568" y="84" text-anchor="middle" font-size="10" fill="#534AB7">Terraform · ArgoCD GitOps</text>
+
+  <rect x="476" y="96" width="184" height="52" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="568" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#3C3489">ArgoCD</text>
+  <text x="568" y="136" text-anchor="middle" font-size="10" fill="#534AB7">GitOps · image updater</text>
+
+  <rect x="476" y="160" width="184" height="52" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="568" y="182" text-anchor="middle" font-size="12" font-weight="600" fill="#3C3489">Airflow</text>
+  <text x="568" y="200" text-anchor="middle" font-size="10" fill="#534AB7">bronze→silver→train→infer</text>
+
+  <rect x="476" y="224" width="184" height="52" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="568" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#3C3489">MLflow</text>
+  <text x="568" y="264" text-anchor="middle" font-size="10" fill="#534AB7">experiments · registry</text>
+
+  <rect x="476" y="288" width="184" height="52" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="568" y="310" text-anchor="middle" font-size="12" font-weight="600" fill="#3C3489">Jenkins</text>
+  <text x="568" y="328" text-anchor="middle" font-size="10" fill="#534AB7">ECR builds · CI/CD</text>
+
+  <rect x="476" y="352" width="184" height="52" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="568" y="374" text-anchor="middle" font-size="12" font-weight="600" fill="#3C3489">RDS PostgreSQL</text>
+  <text x="568" y="392" text-anchor="middle" font-size="10" fill="#534AB7">Airflow · MLflow metadata</text>
+
+  <rect x="476" y="416" width="184" height="52" rx="8" fill="#CECBF6" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="568" y="438" text-anchor="middle" font-size="12" font-weight="600" fill="#3C3489">Grafana Alloy</text>
+  <text x="568" y="456" text-anchor="middle" font-size="10" fill="#534AB7">metrics · logs forwarding</text>
+
+  <!-- EKS internal arrows -->
+  <line x1="568" y1="148" x2="568" y2="158" stroke="#534AB7" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="568" y1="212" x2="568" y2="222" stroke="#534AB7" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="568" y1="276" x2="568" y2="286" stroke="#534AB7" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="568" y1="340" x2="568" y2="350" stroke="#534AB7" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="568" y1="404" x2="568" y2="414" stroke="#534AB7" stroke-width="1" marker-end="url(#arr)"/>
+
+  <!-- MLflow model → Lambda cross-layer arrow -->
+  <line x1="676" y1="250" x2="704" y2="250" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── COLUMN 4: SERVING ── -->
+  <rect x="696" y="42" width="188" height="500" rx="12" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text x="790" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#085041">Serving &amp; alerts</text>
+  <text x="790" y="84" text-anchor="middle" font-size="10" fill="#0F6E56">Lambda · API GW · Grafana</text>
+
+  <rect x="712" y="96" width="156" height="52" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="790" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">Isolation Forest</text>
+  <text x="790" y="136" text-anchor="middle" font-size="10" fill="#0F6E56">anomaly detection model</text>
+
+  <rect x="712" y="160" width="156" height="52" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="790" y="182" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">Lambda</text>
+  <text x="790" y="200" text-anchor="middle" font-size="10" fill="#0F6E56">inference endpoint</text>
+
+  <rect x="712" y="224" width="156" height="52" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="790" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">API Gateway</text>
+  <text x="790" y="264" text-anchor="middle" font-size="10" fill="#0F6E56">REST · SSM discovery</text>
+
+  <rect x="712" y="288" width="156" height="52" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="790" y="310" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">Grafana Cloud</text>
+  <text x="790" y="328" text-anchor="middle" font-size="10" fill="#0F6E56">Loki · Prometheus · Tempo</text>
+
+  <rect x="712" y="352" width="156" height="52" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="790" y="374" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">Telegram bot</text>
+  <text x="790" y="392" text-anchor="middle" font-size="10" fill="#0F6E56">anomaly · health alerts</text>
+
+  <rect x="712" y="416" width="156" height="52" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="790" y="438" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">IRSA</text>
+  <text x="790" y="456" text-anchor="middle" font-size="10" fill="#0F6E56">least-privilege cross-service</text>
+
+  <!-- Serving internal arrows -->
+  <line x1="790" y1="148" x2="790" y2="158" stroke="#0F6E56" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="790" y1="212" x2="790" y2="222" stroke="#0F6E56" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="790" y1="276" x2="790" y2="286" stroke="#0F6E56" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="790" y1="340" x2="790" y2="350" stroke="#0F6E56" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="790" y1="404" x2="790" y2="414" stroke="#0F6E56" stroke-width="1" marker-end="url(#arr)"/>
+
+  <!-- Repo tag strip -->
+  <rect x="20" y="556" width="184" height="26" rx="6" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="112" y="573" text-anchor="middle" font-size="10" fill="#666">iot-mlops-edge-compute</text>
+
+  <rect x="228" y="556" width="212" height="26" rx="6" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="334" y="573" text-anchor="middle" font-size="10" fill="#666">iot-mlops-python-dag</text>
+
+  <rect x="460" y="556" width="216" height="26" rx="6" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="568" y="573" text-anchor="middle" font-size="10" fill="#666">iot-mlops-manifests + terraform</text>
+
+  <rect x="696" y="556" width="188" height="26" rx="6" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="790" y="573" text-anchor="middle" font-size="10" fill="#666">iot-mlops-python-dag</text>
+
+  <!-- Legend -->
+  <rect x="20" y="600" width="860" height="40" rx="8" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="36" y="614" width="12" height="12" rx="2" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text x="54" y="624" font-size="10" fill="#555">Edge</text>
+  <rect x="110" y="614" width="12" height="12" rx="2" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+  <text x="128" y="624" font-size="10" fill="#555">Ingestion</text>
+  <rect x="210" y="614" width="12" height="12" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text x="228" y="624" font-size="10" fill="#555">MLOps (EKS)</text>
+  <rect x="330" y="614" width="12" height="12" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text x="348" y="624" font-size="10" fill="#555">Serving</text>
+  <line x1="420" y1="620" x2="450" y2="620" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="458" y="624" font-size="10" fill="#555">Observability path</text>
+  <line x1="560" y1="620" x2="590" y2="620" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="598" y="624" font-size="10" fill="#555">Data flow</text>
+</svg>
