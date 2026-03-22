@@ -11,6 +11,9 @@
   <!-- Background -->
   <rect width="900" height="400" fill="#fafafa" rx="12"/>
 
+  <!-- Title -->
+  <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#222">Workflow Overview</text>
+  
   <!-- Block 1: Edge -->
   <rect x="28" y="100" width="140" height="110" rx="10" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
   <text x="98" y="128" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Edge device</text>
