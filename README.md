@@ -19,11 +19,11 @@
 
 ## Architecture overview
 
-![Architecture overview](docs/infrastruture-minimal.svg)
+![Architecture overview](docs/infrastructure-minimal.svg)
 
 ![DAG pipelines](docs/dag-pipeline.svg)
 
-![Detailed architecture](docs/infrastruture-full.svg)
+![Detailed architecture](docs/infrastructure-full.svg)
 
 ---
 
