@@ -192,7 +192,7 @@ Modular Terraform for the entire AWS foundation.
 
 ---
 
-## Some Notes On Design Decisions
+## Design decisions note
 
 | Decision | Why it matters |
 |----------|---------------|
