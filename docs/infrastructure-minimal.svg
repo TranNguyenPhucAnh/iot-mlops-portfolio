@@ -9,7 +9,7 @@
   </defs>
 
   <!-- Background -->
-  <rect width="900" height="375" fill="#fafafa" rx="12"/>
+  <rect width="900" height="400" fill="#fafafa" rx="12"/>
 
   <!-- Title -->
   <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#222">Workflow Overview</text>
