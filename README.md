@@ -12,7 +12,11 @@ with Terraform and deployed via ArgoCD GitOps.
 ---
 
 ## Architecture overview
-![Diagram](docs/infrastructure.svg)
+![Overview](docs/infrastructure-minimal.svg)
+
+![Overview](docs/infrastructure-flow.svg)
+
+![Overview](docs/infrastructure-full.svg)
 
 ---
 
