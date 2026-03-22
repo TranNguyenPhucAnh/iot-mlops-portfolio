@@ -29,11 +29,17 @@
 
 ## The core challenge: sparse edge data
 
-A single Raspberry Pi running 24/7 produces roughly uniform sensor readings — nearly no natural anomalies occur day-to-day. Training an Isolation Forest on that data alone yields a model that learns "everything is normal."
+> **Problem:** A single Raspberry Pi running 24/7 produces nearly uniform readings — natural anomalies are rare, so a naively trained model just learns *"everything is normal."*
 
-The solution was a **synthetic anomaly generator** (`generator/` in `iot-mlops-python-dag`) that injects realistic edge-case readings directly into the Bronze layer: gas resistance spikes simulating air quality events, temperature and humidity excursions outside the defined domain thresholds. The training DAG then labels records using domain rules (IAQ score, temperature, humidity bounds) and sets `contamination` directly from the observed anomaly rate — no guesswork.
+**Solution — synthetic anomaly injection:**
 
-This approach lets the model learn a meaningful decision boundary even with a single physical device generating data.
+| What | How |
+|------|-----|
+| 🧪 Inject anomalies | `generator/` writes edge-case readings (gas spikes, temp/humidity excursions) directly into Bronze |
+| 🏷️ Label with domain rules | IAQ score, temperature `[28–33 °C]`, humidity `[60–70 %]` thresholds — not blind clustering |
+| 📐 Set contamination | Derived from observed anomaly rate — no manual guesswork |
+
+Result: the model learns a meaningful decision boundary even with a single physical device.
 
 ---
 
@@ -186,16 +192,11 @@ Modular Terraform for the entire AWS foundation.
 
 ---
 
-## Design decisions worth noting
+## Design decisions
 
-### 🔍 SSM Parameter Store for endpoint discovery
-The Raspberry Pi discovers the Lambda inference URL from SSM at startup — Terraform writes the endpoint after provisioning, the Pi only needs `ssm:GetParameter`. No Terraform knowledge required on the device, and the URL can change without touching edge code.
-
-### 🏷️ Domain-rule labels, not unsupervised only
-IAQ score thresholds and sensor range bounds derived from 7-day rolling stats label each record before training. This gives the Isolation Forest a meaningful `contamination` value and makes evaluation metrics (ROC-AUC, Precision, Recall) interpretable — something pure unsupervised labeling cannot provide.
-
-### 📊 Stratified split over time-based split
-With a single-sensor dataset, anomalies cluster in time. A naive 80/20 time-based split can leave the test set with zero anomalies. Stratified split guarantees anomaly representation in both sets regardless of when they occurred.
-
-### 🔐 IRSA everywhere
-No long-lived AWS credentials anywhere. Every EKS workload (Airflow, MLflow, Jenkins, Grafana Alloy) uses **IAM Roles for Service Accounts** with the minimum required permissions — credentials are ephemeral and automatically rotated.
+| Decision | Why it matters |
+|----------|---------------|
+| 🔍 **SSM for endpoint discovery** | The Pi fetches the Lambda URL from SSM at startup — Terraform writes it post-provisioning, the Pi only needs `ssm:GetParameter`. URL can change without touching edge code. |
+| 🏷️ **Domain-rule labels** | IAQ score + sensor bounds label records before training, giving Isolation Forest a meaningful `contamination` value and making ROC-AUC/Precision/Recall interpretable — something pure unsupervised labeling cannot provide. |
+| 📊 **Stratified over time-based split** | With a single sensor, anomalies cluster in time — a naïve 80/20 time split can leave the test set with zero anomalies. Stratified split guarantees representation in both sets. |
+| 🔐 **IRSA everywhere** | No long-lived AWS credentials anywhere. All EKS workloads use IAM Roles for Service Accounts — ephemeral, automatically rotated, least-privilege. |
