@@ -14,9 +14,9 @@ with Terraform and deployed via ArgoCD GitOps.
 ## Architecture overview
 ![Overview](docs/infrastructure-minimal.svg)
 
-![Overview](docs/infrastructure-flow.svg)
-
 ![Overview](docs/infrastructure-full.svg)
+
+![Overview](docs/dag-pipeline.svg)
 
 ---
 
