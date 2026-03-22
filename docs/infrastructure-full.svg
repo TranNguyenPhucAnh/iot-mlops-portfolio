@@ -11,9 +11,7 @@
   <rect width="900" height="760" fill="#fafafa" rx="12"/>
 
   <!-- Header -->
-  <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#222">
-    Techstack & Infrastructure
-  </text>
+  <text x="450" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#222">Techstack & Infrastructure</text>
   <!-- Dividers -->
   <line x1="216" y1="36" x2="216" y2="720" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
   <line x1="452" y1="36" x2="452" y2="720" stroke="#ddd" stroke-width="1" stroke-dasharray="4 3"/>
