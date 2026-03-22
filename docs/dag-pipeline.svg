@@ -61,7 +61,7 @@
   <text x="618" y="140" text-anchor="middle" font-size="10" fill="#0F6E56">scores → S3</text>
 
   <!-- ── TRAINING BRANCH (below DAG 3) ── -->
-  <line x1="444" y1="152" x2="444" y2="178" stroke="#534AB7" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr-purple)"/>
+  <line x1="444" y1="152" x2="444" y2="178" stroke="#534AB7" stroke-width="1" marker-end="url(#arr-purple)"/>
 
   <!-- Registration gate -->
   <rect x="320" y="180" width="248" height="72" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
@@ -69,28 +69,33 @@
   <text x="444" y="220" text-anchor="middle" font-size="10" fill="#534AB7">ROC-AUC ≥ 0.75</text>
   <text x="444" y="236" text-anchor="middle" font-size="10" fill="#534AB7">Precision ≥ 0.60 · Recall ≥ 0.50</text>
 
-  <!-- Pass branch left (avoid crossing block) -->
+  <!-- Pass branch left (solid, no cross) -->
   <path d="M380 252 L320 252 L320 290" fill="none" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <!-- Pass label moved outside -->
+  <text x="300" y="248" text-anchor="end" font-size="10" fill="#0F6E56">pass</text>
 
-  <!-- Fail branch right (avoid crossing block) -->
+  <!-- Fail branch right (solid, no cross) -->
   <path d="M508 252 L580 252 L580 290" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Fail label moved outside -->
+  <text x="600" y="248" text-anchor="start" font-size="10" fill="#888">fail</text>
 
   <!-- Register → Staging -->
   <rect x="190" y="292" width="180" height="52" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
   <text x="280" y="314" text-anchor="middle" font-size="12" font-weight="600" fill="#085041">Register → Staging</text>
-  <text x="280" y="330" text-anchor="middle" font-size="10" fill="#0F6E56">pass (manual promote to Prod)</text>
+  <text x="280" y="330" text-anchor="middle" font-size="10" fill="#0F6E56">manual promote to Prod</text>
 
   <!-- Skip registration -->
   <rect x="528" y="292" width="180" height="52" rx="8" fill="#f0f0f0" stroke="#aaa" stroke-width="1"/>
   <text x="618" y="314" text-anchor="middle" font-size="12" font-weight="600" fill="#555">Skip registration</text>
-  <text x="618" y="330" text-anchor="middle" font-size="10" fill="#888">fail (notify · log to MLflow)</text>
+  <text x="618" y="330" text-anchor="middle" font-size="10" fill="#888">notify · log to MLflow</text>
 
-  <!-- Both → Notification -->
-  <path d="M280 344 L280 370 L444 370 L444 392" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr)"/>
-  <path d="M618 344 L618 370 L444 370" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3"/>
+  <!-- Both → Notification (solid) -->
+  <path d="M280 344 L280 370 L444 370 L444 400" fill="none" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+  <path d="M618 344 L618 370 L444 370" fill="none" stroke="#aaa" stroke-width="1"/>
 
-  <rect x="344" y="394" width="200" height="30" rx="6" fill="#f0f0f0" stroke="#bbb" stroke-width="1"/>
-  <text x="444" y="413" text-anchor="middle" font-size="10" fill="#555">Notification · trigger_rule: none_failed</text>
+  <!-- Notification block wider & higher -->
+  <rect x="324" y="402" width="240" height="32" rx="6" fill="#f0f0f0" stroke="#bbb" stroke-width="1"/>
+  <text x="444" y="422" text-anchor="middle" font-size="10" fill="#555">Notification · trigger_rule: none_failed</text>
 
   <!-- ── SYNTHETIC GENERATOR (right side) ── -->
   <rect x="714" y="180" width="166" height="72" rx="10" fill="#fff8e6" stroke="#e0a800" stroke-width="1"/>
@@ -98,6 +103,6 @@
   <text x="797" y="220" text-anchor="middle" font-size="10" fill="#7d5a00">injects edge-case</text>
   <text x="797" y="236" text-anchor="middle" font-size="10" fill="#7d5a00">anomalies → Bronze</text>
 
-  <!-- Synthetic → Bronze (L-bend, avoid crossing block centers) -->
-  <path d="M714 216 L700 216 L700 112 L172 112" fill="none" stroke="#e0a800" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arr-amber)"/>
+  <!-- Synthetic → Bronze (L-bend, solid) -->
+  <path d="M714 216 L700 216 L700 112 L172 112" fill="none" stroke="#e0a800" stroke-width="1" marker-end="url(#arr-amber)"/>
 </svg>
