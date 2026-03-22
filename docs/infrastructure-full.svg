@@ -199,6 +199,6 @@
   <text x="348" y="624" font-size="10" fill="#555">Serving</text>
   <line x1="420" y1="620" x2="450" y2="620" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
   <text x="458" y="624" font-size="10" fill="#555">Observability path</text>
-  <line x1="560" y1="620" x2="590" y2="620" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
-  <text x="598" y="624" font-size="10" fill="#555">Data flow</text>
+  <line x1="580" y1="620" x2="610" y2="620" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="618" y="624" font-size="10" fill="#555">Data flow</text>
 </svg>
